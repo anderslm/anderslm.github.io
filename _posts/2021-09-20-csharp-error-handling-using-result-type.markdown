@@ -4,7 +4,7 @@ title:  "C# error handling using a result type"
 date:   2021-09-20 07:48:00 +0200
 categories: C#
 ---
-#A problem
+# A problem
 Consider a function definition of a function that takes a string and calculates then length
 of the string:
 ```c#
@@ -33,7 +33,7 @@ learn from experience whether or not this is the case.
 
 This is a problem and it should be fixed.
 
-#Result
+# Result
 
 In order to address this problem we have to come up with a return type for `LengthOf`
 that is able to tell us that it can fail. We can do this be implementing what is known
@@ -85,7 +85,7 @@ public struct Result<T>
         => IsOk ? onSuccess(Success) : onError(Error);
 }
 ```
-#Use it for `LenghtOf`
+# Use it for `LenghtOf`
 Now that we have the result type we can rewrite our definition of `LenghtOf` to:
 ```c#
 Result<int> LengthOf(string s);
@@ -108,7 +108,7 @@ public static void Main(string[] args)
 }
 ```
 
-#Programming with results
+# Programming with results
 The power of this only becomes apparent when you use the result for something a 
 little more complicated than the example above. Imagine that instead of counting the
 length of a string, we should divide the length of the string with itself minus 2,
