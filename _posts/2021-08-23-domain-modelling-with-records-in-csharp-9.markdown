@@ -4,7 +4,6 @@ title:  "Domain modelling with records in C# 9"
 date:   2021-08-23 21:40:00 +0200
 categories: C#
 ---
-# Domain modelling with records in C# 9
 In C# 9 a new shorthand syntax for creating records was introduced. 
 It is called [positional record] and removes a lot of boilerplate when
 creating new types.
@@ -28,7 +27,7 @@ public record Product(string Name, decimal Price);
 
 I won't go into the details of what the difference is between a `class` and a `record`,
 but only focus on what this does for domain modelling.
-## The domain
+# The domain
 Consider creating a domain model of a product catalog in the utilities sector. In this
 imaginary company they sell **electricity**, **internet** and **gas** and the pricing differs.
 They all have a monthly fee, but:
@@ -38,7 +37,7 @@ They all have a monthly fee, but:
 All the products are stored in a **database** and the market price is available through a third
 party **http api**.
 
-## Using class
+# Using class
 When creating a **domain model** using `class`'s it's a common practice to create a new file for each new type.
 
 It could look like this:
@@ -62,7 +61,7 @@ Because of the syntactic overhead when working with `class`'s it doesn't help mu
 to put multiple `class`'s in a single file, as that would just make that file very big and full of 
 boilerplate such as getters, setters and curly braces.
 
-## Using record
+# Using record
 It wouldn't make sense to adopt the 'one file per class' practice when working with records as a
 `record` often fits on a single line. Instead of putting each new type in a file each, it's sufficient
 to use a single file:
@@ -98,7 +97,7 @@ namespace Products
 ```
 Now this is much easier to get your head around than navigating between files and remembering the implementation.
 
-## Size matters
+# Size matters
 The point is that size matters. Using `positional record`'s makes creating new types extremely lightweight,
 and as such one tends to create more of them.
 
